@@ -3,7 +3,7 @@ import './index.css'
 import Button from 'react-bootstrap/Button';
 import withNavigate from '../withNavigate/';
 
-// In the Page I used class component with state
+// In this Page I used class component with state
 
 class FirstPage extends Component{
     state={name:"",email:"",phone:"",fill:true,emailValid:true}
