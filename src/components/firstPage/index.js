@@ -3,13 +3,11 @@ import './index.css'
 import Button from 'react-bootstrap/Button';
 import withNavigate from '../withNavigate/';
 
-
-
+// In the Page I used class component with state
 
 class FirstPage extends Component{
     state={name:"",email:"",phone:"",fill:true,emailValid:true}
     componentDidMount(){
-        
         const nameValue=localStorage.getItem("name")
         const checkNameValue=typeof(nameValue)==="string"?nameValue:""
         const emailValue=localStorage.getItem("email")
@@ -18,16 +16,20 @@ class FirstPage extends Component{
         const checkPhoneValue=typeof(phoneValue)==="string"?phoneValue:""
         this.setState({name:checkNameValue,email:checkEmailValue,phone:checkPhoneValue})
     }
+    //change the name
     changeName=(event)=>{
         console.log(event.target.value)
         this.setState({name:event.target.value})
     }
+    // change the email
     changeEmail=(event)=>{
         this.setState({email:event.target.value})
     }
+    //change the phone number
     changePhone=(event)=>{
         this.setState({phone:event.target.value})
     }
+    // Onclick next button
     next=()=>{            
         const{name,email,phone}=this.state
         if(name===""|| email===""||phone===""){
@@ -45,20 +47,20 @@ class FirstPage extends Component{
             this.props.navigate('/secondPage');
         }
     }
-    
+    onFormClick=(event)=>{
+        event.preventDefault()
+    }  
     render(){
         const{fill,name,email,phone,emailValid}=this.state
+        // check wheather the data is filled or not 
         const checkName=fill===false&&name===""?true:false
         const checkEmail=fill===false&&email===""?true:false
         const checkPhone=fill===false&&phone===""?true:false
         const changePhoneLength=fill===false&&phone.length!==10&&phone!==""?true:false
         const changeEmailValid=emailValid===false?true:false
-        const onFormClick=(event)=>{
-            event.preventDefault()
-        }
         return <>     
             <div className="firstPage">
-                <form className="form" onClick={onFormClick}>
+                <form className="form" onClick={this.onFormClick}>
                     <label htmlFor="name" className="label">Name</label>
                     <input type="text" id="name" placeholder="Enter your name.."  onChange={this.changeName}  value={name}/>
                     {checkName&&<p className="errorMsg">Please enter the name*</p>}
@@ -73,8 +75,7 @@ class FirstPage extends Component{
                 </form>
                 <div className="btnContainer">
                   <Button className="btn btn-secondary">Back</Button>
-                  <Button onClick={this.next}>Next</Button> 
-                       
+                  <Button onClick={this.next}>Next</Button>    
                 </div>
             </div>
             </>

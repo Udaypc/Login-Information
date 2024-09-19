@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import {NavLink,useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-
+// In this page I used useState
 
 const SecondPage=(props)=>{
     const[obj,setState]=useState({Address1:"",Address2:"",State:"",City:"",ZipCode:"",fill:true})
@@ -14,28 +14,34 @@ const SecondPage=(props)=>{
         const StateValue=localStorage.getItem("State")!=="null"?localStorage.getItem("State"):""
         const CityValue=localStorage.getItem("City")!=="null"?localStorage.getItem("City"):""
         const ZipCodeValue=localStorage.getItem("ZipCode")!=="null"?localStorage.getItem("ZipCode"):""
-       
+        // Updated the data 
         setState(obj=>({fill:true,Address1:Address1Value,Address2:Address2Value,State:StateValue,City:CityValue,ZipCode:ZipCodeValue}))
        
     },[])
+    // change Address1
     const changeAddress1=(event)=>{
         setState(obj=>({...obj,Address1:event.target.value}))
     }
+    // change Address2
     const changeAddress2=(event)=>{
         setState(obj=>({...obj,Address2:event.target.value}))
     }
+    // change the city
     const changeCity=(event)=>{
         setState(obj=>({...obj,City:event.target.value}))
     }
+    // change the state
     const changeState=(event)=>{
         setState(obj=>({...obj,State:event.target.value}))
     }
+    // change the zip code
     const changeZipCode=(event)=>{
         setState(obj=>({...obj,ZipCode:event.target.value}))
     }
+    // click on the next button
     const next=()=>{
       const{Address1,Address2,City,State,ZipCode}=obj
-      console.log(Address1)
+      // check wheather the data filled or not 
       if(Address1===""||Address2===""||City===""||State===""||ZipCode===""||Address1===null||Address2===null||City===null||State===null||ZipCode===null){
         setState(obj=>({...obj,fill:false}))
       }else{
@@ -44,9 +50,11 @@ const SecondPage=(props)=>{
         localStorage.setItem("City",City)
         localStorage.setItem("State",State)
         localStorage.setItem("ZipCode",ZipCode)
+        // it used for navigate
         navigate("/thirdPage")
       }
     }
+    // it is for default behaviour
     const onFormClick=(e)=>{
        e.preventDefault()
     }
