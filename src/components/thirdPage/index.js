@@ -28,14 +28,16 @@ const ThirdPage=()=>{
     }
     return <>
     <div className='thirdPage'>
-        <p>Name: {localStorage.getItem("name")}</p>
-        <p>Email: {localStorage.getItem("email")}</p>
-        <p>Phone: {localStorage.getItem("phone")}</p>
-        <p>Address1: {localStorage.getItem("Address1")}</p>
-        <p>Address2: {localStorage.getItem("Address2")}</p>
-        <p>State: {localStorage.getItem("State")}</p>
-        <p>City: {localStorage.getItem("City")}</p>
-        <p>ZipCode: {localStorage.getItem("ZipCode")}</p>
+        <div className='detailCard'>
+            <p>Name:           {localStorage.getItem("name")}</p>
+            <p>Email:          {localStorage.getItem("email")}</p>
+            <p>Phone:          {localStorage.getItem("phone")}</p>
+            <p>Address1:       {localStorage.getItem("Address1")}</p>
+            <p>Address2:       {localStorage.getItem("Address2")}</p>
+            <p>State:          {localStorage.getItem("State")}</p>
+            <p>City:           {localStorage.getItem("City")}</p>
+            <p>ZipCode:        {localStorage.getItem("ZipCode")}</p>
+        </div>
         <div className="btnContainer">
             <NavLink to="/secondPage"><Button>Back</Button></NavLink>
             <Button onClick={submit}>Submit</Button>

@@ -6,3 +6,23 @@
     align-items: center;
     flex-direction: column;
 }
+.detailCard{
+    background-color: rgba(240, 248, 255, 0.233);
+    opacity: 1;
+    padding: 40px;
+    border-radius: 5px;
+    font-family: Bree serif;
+    font-size: 20px;
+    margin-top: 30px;
+}
+@media screen and (max-width:600px) {
+    .detailCard{
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+@media screen and (max-width:800px) {
+    .btnContainer{
+        margin-top: 20px;
+    }
+}
