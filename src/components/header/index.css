@@ -9,7 +9,13 @@
     font-size: 15px;
 }
 
-.link{
+.Navlink{
     margin-right: 10px;
     color: #000000;
+    text-decoration: none;
+}
+.Navlink:hover{
+    text-decoration: underline;
+    color: #000000;
+    font-weight: bold;
 }
