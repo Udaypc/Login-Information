@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Route, Routes } from 'react-router-dom'
+import Header from "./components/header/"
+import FirstPage from "./components/firstPage/"
+import SecondPage from "./components/secondPage/"
+import ThirdPage from "./components/thirdPage/"
+
+
+function App(){
+  return <>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<FirstPage/>} />
+          <Route  path="/secondPage" element={<SecondPage/>} />
+          <Route  path="/thirdPage" element={<ThirdPage/>} />
+        </Routes>
+      </>
 }
 
 export default App;

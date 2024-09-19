@@ -1,0 +1,15 @@
+.nav{
+    background-color: rgb(225, 250, 215);
+}
+.logo{
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    border: #27d140 solid;
+    font-size: 15px;
+}
+
+.link{
+    margin-right: 10px;
+    color: #000000;
+}
