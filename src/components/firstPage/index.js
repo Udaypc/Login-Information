@@ -9,6 +9,7 @@ import withNavigate from '../withNavigate/';
 class FirstPage extends Component{
     state={name:"",email:"",phone:"",fill:true,emailValid:true}
     componentDidMount(){
+        
         const nameValue=localStorage.getItem("name")
         const checkNameValue=typeof(nameValue)==="string"?nameValue:""
         const emailValue=localStorage.getItem("email")
